@@ -1,19 +1,18 @@
-from color import Color
+from board import Board, Direction, Pos, RotationDirection
 from player import Player, create_players
-from rug import Direction, Pos, RotationDirection, Rug, RugPos
+from rug import Rug, RugPos
 
 
 class GameState:
     """A játék aktuális állapotát leíró osztály"""
 
-    def __init__(self, player_count: int):
+    def __init__(self, player_count: int) -> None:
         """Inicializálja a játék kezdeti állapotát"""
 
         self.players = create_players(player_count)
         self._current_player_index = 0
 
-        self.board = [[Color.EMPTY] * 7] * 7
-        """7x7 pálya, kezdetben teljesen üres"""
+        self.board = Board()
 
         self.figure_pos = Pos(3, 3)
         self.figure_dir = Direction.UP
@@ -55,15 +54,6 @@ class GameState:
         """
         # TODO
 
-    def get_region_area(self, pos: Pos) -> int:
-        """Visszaadja a megadott pozíciót lefedő szőnyegrégió méretét
-
-        A régió az azonos színű szőnyegek összefüggő területe.
-        Ha a megadott mező üres, akkor 0-t ad vissza.
-        """
-        # TODO
-        return 0
-
     def get_valid_rug_places(self) -> set[RugPos]:
         """Visszaadja az összes olyan helyet, ahova szőnyeget lehet tenni
 
@@ -78,7 +68,7 @@ class GameState:
         rug = Rug(pos, self.current_player().color)
         self.current_player().rugs_left -= 1
         self.rugs.append(rug)
-        # TODO: frissíteni a `board` állapotát
+        self.board.place_rug(rug)
         # TODO: törölni a `top_rugs` lefedésre került szőnyegeit
         self.top_rugs.add(pos)
 

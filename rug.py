@@ -1,33 +1,7 @@
-"""A szőnyegek adatait, valamint pozíciókat és irányokat leíró segédosztályok"""
-
 from dataclasses import dataclass
-from enum import Enum
 
+from board import Direction, Pos
 from color import Color
-
-
-class Direction(Enum):
-    UP = 0
-    RIGHT = 1
-    DOWN = 2
-    LEFT = 3
-
-
-class RotationDirection(Enum):
-    NONE = 0
-    LEFT = 1
-    RIGHT = 2
-
-
-@dataclass
-class Pos:
-    """A pálya egy mezőjének koordinátái
-
-    A bal felső sarok koordinátái (0, 0)
-    """
-
-    row: int
-    col: int
 
 
 @dataclass

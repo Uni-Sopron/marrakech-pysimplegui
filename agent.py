@@ -1,12 +1,13 @@
+from board import Direction, Pos, RotationDirection
 from game_state import GameState
 from player import Player
-from rug import Direction, Pos, RotationDirection, RugPos
+from rug import RugPos
 
 
 class Agent:
     """MI játékost megvalósító osztály"""
 
-    def __init__(self, player: Player, game_state: GameState):
+    def __init__(self, player: Player, game_state: GameState) -> None:
         """Eltárolja a játékos adataira és a játék állapotára mutató referenciákat"""
         self.player = player
         self.game_state = game_state
