@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+
 from color import Color
 
 
