@@ -1,3 +1,5 @@
+"""A szőnyegek adatait, valamint pozíciókat és irányokat leíró segédosztályok"""
+
 from dataclasses import dataclass
 from enum import Enum
 
@@ -39,7 +41,7 @@ class RugPos:
     start: Pos
     direction: Direction
 
-    def intersect(self, other: "RugPos") -> bool:
+    def intersects(self, other: "RugPos") -> bool:
         """Megadja, hogy fedésben van-e egymással a két szőnyeg"""
         # TODO
         return False

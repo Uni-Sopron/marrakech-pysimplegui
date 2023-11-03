@@ -4,8 +4,10 @@ from rug import Direction, Pos, RotationDirection, RugPos
 
 
 class Agent:
+    """MI játékost megvalósító osztály"""
+
     def __init__(self, player: Player, game_state: GameState):
-        """Inicializálja az ügynököt"""
+        """Eltárolja a játékos adataira és a játék állapotára mutató referenciákat"""
         self.player = player
         self.game_state = game_state
 

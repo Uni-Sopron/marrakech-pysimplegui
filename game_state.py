@@ -4,6 +4,8 @@ from rug import Direction, Pos, RotationDirection, Rug, RugPos
 
 
 class GameState:
+    """A játék aktuális állapotát leíró osztály"""
+
     def __init__(self, player_count: int):
         """Inicializálja a játék kezdeti állapotát"""
 
@@ -11,7 +13,7 @@ class GameState:
         self._current_player_index = 0
 
         self.board = [[Color.EMPTY] * 7] * 7
-        """7x7 pálya"""
+        """7x7 pálya, kezdetben teljesen üres"""
 
         self.figure_pos = Pos(3, 3)
         self.figure_dir = Direction.UP
@@ -40,7 +42,8 @@ class GameState:
     def step_with_figure(self) -> None:
         """A figura egy mezőt lép a jelenlegi irányába
 
-        A figura a pálya szélét elhagyva egy szomszédos sorban folytatja a mozgást.
+        Ha a figura lelépne a pályáról, az erkélyt követve visszatér a pályára egy
+        szomszédos sorba, vagy a fordító saroknál a kiindulási mezőre, elfordulva.
         """
         # TODO
 
