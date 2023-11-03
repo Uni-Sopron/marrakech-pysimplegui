@@ -54,6 +54,17 @@ class RugPos:
         # TODO
         return RugPos(positions[0], Direction.UP)
 
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, RugPos):
+            return False
+        tup1 = self.as_tuple()
+        tup2 = other.as_tuple()
+        if tup1 == tup2:
+            return True
+        if tup1 == (tup2[1], tup2[0]):
+            return True
+        return False
+
 
 @dataclass
 class Rug:
