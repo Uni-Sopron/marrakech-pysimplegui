@@ -12,8 +12,9 @@ class Direction(Enum):
 
 
 class RotationDirection(Enum):
-    LEFT = 0
-    RIGHT = 1
+    NONE = 0
+    LEFT = 1
+    RIGHT = 2
 
 
 @dataclass

@@ -33,6 +33,8 @@ class GameState:
 
     def turn_figure(self, direction: RotationDirection) -> None:
         """A figurát 90 fokkal elfordítja a megadott irányba"""
+        if direction == RotationDirection.NONE:
+            return
         # TODO
 
     def step_with_figure(self) -> None:
