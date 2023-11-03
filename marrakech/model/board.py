@@ -1,38 +1,15 @@
-from dataclasses import dataclass
-from enum import Enum
-
-from color import Color
-from rug import Rug
-
-
-class Direction(Enum):
-    UP = 0
-    RIGHT = 1
-    DOWN = 2
-    LEFT = 3
-
-
-class RotationDirection(Enum):
-    NONE = 0
-    LEFT = 1
-    RIGHT = 2
-
-
-@dataclass
-class Pos:
-    """A pálya egy mezőjének koordinátái
-
-    A bal felső sarok koordinátái (0, 0)
-    """
-
-    row: int
-    col: int
+from .color import Color
+from .position import Pos
+from .rug import Rug
 
 
 class Board:
     def __init__(self) -> None:
         self.fields = [[Color.EMPTY] * 7] * 7
         """7x7 pálya, kezdetben teljesen üres"""
+
+    def __repr__(self) -> str:
+        return "\n".join(map(str, self.fields))
 
     def get(self, pos: Pos) -> Color:
         return self.fields[pos.row][pos.col]

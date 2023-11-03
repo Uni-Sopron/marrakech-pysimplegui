@@ -1,7 +1,8 @@
-from board import Direction, Pos, RotationDirection
-from game_state import GameState
-from player import Player
-from rug import RugPos
+from ..model.directions import Direction, RotationDirection
+from ..model.game_state import GameState
+from ..model.player import Player
+from ..model.position import Pos
+from ..model.rug import RugPos
 
 
 class Agent:

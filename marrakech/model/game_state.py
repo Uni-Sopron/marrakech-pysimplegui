@@ -1,6 +1,8 @@
-from board import Board, Direction, Pos, RotationDirection
-from player import Player, create_players
-from rug import Rug, RugPos
+from .board import Board
+from .directions import Direction, RotationDirection
+from .player import Player, create_players
+from .position import Pos
+from .rug import Rug, RugPos
 
 
 class GameState:

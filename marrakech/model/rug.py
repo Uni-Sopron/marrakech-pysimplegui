@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 
-from board import Direction, Pos
-from color import Color
+from .directions import Direction
+from .color import Color
+from .position import Pos
 
 
 @dataclass

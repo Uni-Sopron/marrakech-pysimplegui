@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from color import Color
+from .color import Color
 
 
 @dataclass
