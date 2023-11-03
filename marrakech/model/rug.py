@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from .directions import Direction
 from .color import Color
+from .directions import Direction
 from .position import Pos
 
 
