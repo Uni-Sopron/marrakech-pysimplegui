@@ -35,10 +35,16 @@ class GameState:
         """A figurát 90 fokkal elfordítja a megadott irányba"""
         # TODO
 
-    def move_figure(self, steps: int) -> None:
-        """A figurát `steps` lépéssel elmozdítja a jelenlegi irányába
+    def step_with_figure(self) -> None:
+        """A figura egy mezőt lép a jelenlegi irányába
 
         A figura a pálya szélét elhagyva egy szomszédos sorban folytatja a mozgást.
+        """
+        # TODO
+
+    def move_figure(self, steps: int) -> None:
+        """A figura `steps` lépést tesz a jelenlegi irányába
+
         Ha a figura egy ellenfél szőnyegén áll meg, az aktuális játékos a régió
         méretével megegyező pénzt fizet a tulajdonosnak.
         """
@@ -77,3 +83,12 @@ class GameState:
         A játék akkor ér véget, ha minden játékosnak elfogytak a szőnyegei."""
         # TODO
         return False
+
+    def get_scoreboard(self) -> list[tuple[Player, int]]:
+        """Visszaadja a játékosokat és pontszámaikat helyezés szerinti sorrendben
+
+        A pontszám a pénz és a fedetlen szőnyegfelület összege.
+        Pontegyezés esetén a nagyobb szőnyegfelület számít jobb eredménynek.
+        """
+        # TODO
+        return []
