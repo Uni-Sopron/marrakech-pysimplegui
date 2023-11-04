@@ -50,8 +50,12 @@ class RugPos:
             return True
         return False
 
+    def __hash__(self) -> int:
+        """Hashelhetővé teszi az objektumot"""
+        return hash(self.as_tuple())
 
-@dataclass
+
+@dataclass(frozen=True)
 class Rug:
     """Egy szőnyeg adatait leíró osztály"""
 

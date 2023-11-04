@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(frozen=True)
 class Pos:
     """A pálya egy mezőjének koordinátái
 
