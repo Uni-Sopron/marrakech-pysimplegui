@@ -39,6 +39,7 @@ class RugPos:
         return RugPos(positions[0], Direction.UP)
 
     def __eq__(self, other: object) -> bool:
+        """Két `RugPos` objektum akkor egyenlő, ha teljesen fedik egymást"""
         if not isinstance(other, RugPos):
             return False
         tup1 = self.as_tuple()
