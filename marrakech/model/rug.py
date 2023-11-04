@@ -18,7 +18,9 @@ class RugPos:
 
     def intersects(self, other: "RugPos") -> bool:
         """Megadja, hogy fedésben van-e egymással a két szőnyeg"""
-        return set(self.as_tuple()).intersection(set(other.as_tuple())) != set()
+        pos1, pos2 = self.as_tuple()
+        tuple2 = other.as_tuple()
+        return pos1 in tuple2 or pos2 in tuple2
 
     def as_tuple(self) -> tuple[Pos, Pos]:
         """Visszaadja a szőnyeg két mezőjének koordinátáit"""

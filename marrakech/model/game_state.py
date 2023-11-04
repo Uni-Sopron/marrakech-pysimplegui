@@ -114,7 +114,7 @@ class GameState:
                     continue
                 pos = RugPos.from_tuple((start, end))
                 for top in self.top_rugs:
-                    if pos.intersects(top):
+                    if pos == top:
                         break
                 else:
                     places.append(pos)

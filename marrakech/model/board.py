@@ -31,13 +31,13 @@ class Board:
         if color == Color.EMPTY:
             return 0
 
-        visited = set[Pos]()
+        visited = list[Pos]()
         queue = [pos]
         while queue:
             pos = queue.pop()
             if pos in visited:
                 continue
-            visited.add(pos)
+            visited.append(pos)
             for neighbor in pos.neighbors():
                 if self.get(neighbor) == color:
                     queue.append(neighbor)
