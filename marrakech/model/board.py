@@ -27,6 +27,18 @@ class Board:
         A régió az azonos színű szőnyegek összefüggő területe.
         Ha a megadott mező üres, akkor 0-t ad vissza.
         """
-        # TODO
-        raise NotImplementedError
-        return 0
+        color = self.get(pos)
+        if color == Color.EMPTY:
+            return 0
+
+        visited = set[Pos]()
+        queue = [pos]
+        while queue:
+            pos = queue.pop()
+            if pos in visited:
+                continue
+            visited.add(pos)
+            for neighbor in pos.neighbors():
+                if self.get(neighbor) == color:
+                    queue.append(neighbor)
+        return len(visited)

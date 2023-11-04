@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from random import shuffle
 
 from .color import Color
 
@@ -15,7 +16,8 @@ class Player:
 
         Ha nincs elég pénze, akkor annyit fizet, amennyit tud.
         """
-        # TODO
+        other.money += min(self.money, amount)
+        self.money -= min(self.money, amount)
 
 
 def create_players(count: int) -> list[Player]:
@@ -23,5 +25,13 @@ def create_players(count: int) -> list[Player]:
 
     A játékosok adattagjait a játékosszámtól függően inicializálja.
     """
-    # TODO
-    return []
+    if count not in (3, 4):
+        raise ValueError("A játékosok száma csak 3 vagy 4 lehet")
+    players = list[Player]()
+    for i in range(count):
+        color = Color(i + 1)
+        money = 120 // count
+        rugs_left = 15 if count == 3 else 12
+        players.append(Player(color, money, rugs_left, f"{color.name} player"))
+    shuffle(players)
+    return players
