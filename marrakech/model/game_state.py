@@ -1,5 +1,4 @@
-from marrakech.model.color import Color
-
+from .color import Color
 from .board import Board
 from .directions import Direction, RotationDirection
 from .player import Player, create_players
