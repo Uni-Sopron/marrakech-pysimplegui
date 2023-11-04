@@ -1,7 +1,8 @@
 """A játékprogram belépési pontja."""
 
 from .model.game_state import GameState
+from .gui.mainwindow import MainWindow
 
-print("Setting up for 3 players...")
-game = GameState(3)
-print(game.board)
+game = GameState(4)
+window = MainWindow(game)
+window.start()
