@@ -1,7 +1,6 @@
-from ..model.directions import Direction, RotationDirection
+from ..model.directions import RotationDirection
 from ..model.game_state import GameState
 from ..model.player import Player
-from ..model.position import Pos
 from ..model.rug import RugPos
 
 
@@ -21,4 +20,5 @@ class Agent:
     def decide_rug_placement(self) -> RugPos:
         """Eldönti, hogy hova rakja le a szőnyeget"""
         # TODO
-        return RugPos(Pos(0, 0), Direction.UP)
+        places = list(self.game_state.get_valid_rug_places())
+        return places[0]

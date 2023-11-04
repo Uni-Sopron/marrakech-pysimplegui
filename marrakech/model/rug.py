@@ -19,17 +19,23 @@ class RugPos:
     def intersects(self, other: "RugPos") -> bool:
         """Megadja, hogy fedésben van-e egymással a két szőnyeg"""
         # TODO
+        raise NotImplementedError
         return False
 
     def as_tuple(self) -> tuple[Pos, Pos]:
         """Visszaadja a szőnyeg két mezőjének koordinátáit"""
         # TODO
+        raise NotImplementedError
         return (self.start, Pos(0, 0))
 
     @staticmethod
     def from_tuple(positions: tuple[Pos, Pos]) -> "RugPos":
-        """Létrehoz egy `RugPos` objektumot a két mező koordinátáiból"""
+        """Létrehoz egy `RugPos` objektumot a két mező koordinátáiból
+
+        Ha a két mező nem szomszédos, akkor `ValueError` kivételt dob.
+        """
         # TODO
+        raise NotImplementedError
         return RugPos(positions[0], Direction.UP)
 
     def __eq__(self, other: object) -> bool:

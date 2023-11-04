@@ -5,7 +5,7 @@ from .rug import Rug
 
 class Board:
     def __init__(self) -> None:
-        self.fields = [[Color.EMPTY] * 7] * 7
+        self.fields = [[Color.EMPTY for _ in range(7)] for _ in range(7)]
         """7x7 pálya, kezdetben teljesen üres"""
 
     def __repr__(self) -> str:
@@ -28,4 +28,5 @@ class Board:
         Ha a megadott mező üres, akkor 0-t ad vissza.
         """
         # TODO
+        raise NotImplementedError
         return 0
