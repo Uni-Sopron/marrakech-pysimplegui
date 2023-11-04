@@ -77,7 +77,7 @@ class GameState:
             else:
                 self.figure_dir = Direction.RIGHT
                 self.figure_pos.row += 1 if self.figure_pos.row % 2 == 0 else -1
-        else:
+        elif self.figure_pos.col > 6:
             # jobboldali erkély
             self.figure_pos.col = 6
             if self.figure_pos.row == 0:
