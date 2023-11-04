@@ -13,7 +13,7 @@ class Player:
     def pay_to(self, other: "Player", amount: int) -> None:
         """Pénz fizetése egy másik játékosnak
 
-        Ha nincs elég pénze, akkor annyit fizet, amennyitt tud.
+        Ha nincs elég pénze, akkor annyit fizet, amennyit tud.
         """
         # TODO
 
