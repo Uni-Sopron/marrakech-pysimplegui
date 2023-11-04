@@ -9,10 +9,10 @@ from ..model.position import Pos
 from ..model.rug import RugPos
 
 FIGURE = {
-    Direction.UP: "▲",
-    Direction.RIGHT: "▶",
-    Direction.DOWN: "▼",
-    Direction.LEFT: "◀",
+    Direction.UP: "⏫",
+    Direction.RIGHT: "⏩",
+    Direction.DOWN: "⏬",
+    Direction.LEFT: "⏪",
 }
 
 
@@ -101,6 +101,7 @@ class MainWindow:
         self.game.turn_figure(direction)
         for btn in self.rotate_btns:
             btn.update(disabled=True)
+        self.update()
 
     def enable_rotate(self):
         for btn in self.rotate_btns:
