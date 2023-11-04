@@ -16,8 +16,7 @@ class Pos:
 
     def distance(self, other: "Pos") -> int:
         """Megadja a két mező Manhattan-távolságát"""
-        raise NotImplementedError
-        return 0
+        return abs(self.row - other.row) + abs(self.col - other.col)
 
     def neighbors(self) -> list["Pos"]:
         """Megadja a mező érvényes szomszédait a 7x7-es pályán"""
