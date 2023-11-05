@@ -63,7 +63,7 @@ class GameState:
         Nem takarhat le teljesen egy fedetlen szőnyeget.
         """
         # TODO
-        return set()
+        return []
 
     def place_rug(self, pos: RugPos) -> None:
         """Az aktuális játékos lerak egy szőnyeget a megadott helyre"""

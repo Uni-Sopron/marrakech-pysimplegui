@@ -5,7 +5,7 @@ from marrakech.model.position import Pos
 from marrakech.model.rug import Rug, RugPos
 
 
-def test_init():
+def test_init() -> None:
     board = Board()
     assert len(board.fields) == 7
     for row in board.fields:
@@ -14,14 +14,14 @@ def test_init():
             assert field == Color.EMPTY
 
 
-def test_get():
+def test_get() -> None:
     board = Board()
     for i in range(7):
         for j in range(7):
             assert board.get(Pos(i, j)) == Color.EMPTY
 
 
-def test_set():
+def test_set() -> None:
     board = Board()
     for i in range(7):
         for j in range(7):
@@ -30,7 +30,7 @@ def test_set():
             assert board.get(Pos(i, j)) == Color.RED
 
 
-def test_place_rug():
+def test_place_rug() -> None:
     board = Board()
     board.place_rug(Rug(RugPos(Pos(1, 1), Direction.RIGHT), Color.RED))
     assert board.get(Pos(1, 1)) == Color.RED

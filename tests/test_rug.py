@@ -5,7 +5,7 @@ from marrakech.model.position import Pos
 from marrakech.model.rug import RugPos
 
 
-def test_from_tuple():
+def test_from_tuple() -> None:
     pos1 = Pos(1, 1)
     pos2 = Pos(1, 2)
     rug_pos = RugPos.from_tuple((pos1, pos2))
@@ -23,7 +23,7 @@ def test_from_tuple():
         assert rug_pos.direction == Direction.UP
 
 
-def test_from_tuple_raises():
+def test_from_tuple_raises() -> None:
     pos1 = Pos(1, 1)
     pos2 = Pos(1, 3)
     with pytest.raises(ValueError):
@@ -37,7 +37,7 @@ def test_from_tuple_raises():
         RugPos.from_tuple((pos1, pos3))
 
 
-def test_as_tuple():
+def test_as_tuple() -> None:
     pos1 = Pos(1, 1)
     pos2 = Pos(1, 2)
     rug_pos = RugPos(pos1, Direction.RIGHT)
