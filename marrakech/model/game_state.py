@@ -1,4 +1,5 @@
 from marrakech.model.color import Color
+
 from .board import Board
 from .directions import Direction, RotationDirection
 from .player import Player, create_players
@@ -150,7 +151,7 @@ class GameState:
             (player.name, player.money + areas[player.name]) for player in self.players
         ]
 
-        def key(item):
+        def key(item) -> tuple[int, int]:
             player_name, score = item
             return score, areas[player_name]
 
