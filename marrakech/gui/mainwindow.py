@@ -49,7 +49,7 @@ class MainWindow:
                                 if player == self.game.current_player()
                                 else ""}""",
                             text_color="black"
-                            if player.color == Color.YELLOW
+                            if player.color in (Color.YELLOW, Color.MAGENTA)
                             else "white",
                             background_color=player.color.name,
                             key=f"{player.name}_name",
