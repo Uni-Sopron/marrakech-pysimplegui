@@ -3,17 +3,10 @@ import time
 import PySimpleGUI as sg  # type: ignore
 
 from ..model.color import Color
-from ..model.directions import Direction, RotationDirection
+from ..model.directions import RotationDirection
 from ..model.game_state import GameState
 from ..model.position import Pos
 from ..model.rug import RugPos
-
-FIGURE = {
-    Direction.UP: "⏫",
-    Direction.RIGHT: "⏩",
-    Direction.DOWN: "⏬",
-    Direction.LEFT: "⏪",
-}
 
 
 class MainWindow:
@@ -28,13 +21,14 @@ class MainWindow:
             self.layout.append(
                 [
                     sg.Button(
-                        FIGURE[self.game.figure_dir]
-                        if Pos(row, col) == self.game.figure_pos
-                        else "",
-                        size=(5, 2),
+                        " ",
                         pad=(0, 0),
                         border_width=1,
                         key=(row, col),
+                        image_filename="img/fig_0.png"
+                        if Pos(row, col) == self.game.figure_pos
+                        else "img/fig_none.png",
+                        image_size=(51, 51),
                     )
                     for col in range(7)
                 ]
@@ -77,7 +71,9 @@ class MainWindow:
     def update(self):
         for row in range(7):
             for col in range(7):
-                self.window[(row, col)].update("")
+                self.window[(row, col)].update(
+                    " ", image_filename="img/fig_none.png", image_size=(51, 51)
+                )
         for rug in self.game.rugs:
             for pos in rug.pos.as_tuple():
                 self.window[pos.as_tuple()].update(
@@ -85,7 +81,8 @@ class MainWindow:
                     button_color=("black", rug.color.name),
                 )
         self.window[self.game.figure_pos.as_tuple()].update(
-            FIGURE[self.game.figure_dir]
+            image_filename=f"img/fig_{self.game.figure_dir.value}.png",
+            image_size=(51, 51),
         )
         for player in self.game.players:
             self.window[f"{player.name}_name"].update(
