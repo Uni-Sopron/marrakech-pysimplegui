@@ -72,13 +72,17 @@ class MainWindow:
         for row in range(7):
             for col in range(7):
                 self.window[(row, col)].update(
-                    " ", image_filename="img/fig_none.png", image_size=(51, 51)
+                    image_filename="img/fig_none.png", image_size=(51, 51)
                 )
         for rug in self.game.rugs:
             for pos in rug.pos.as_tuple():
+                direction = rug.pos.direction
+                if pos != rug.pos.start:
+                    direction = direction.rotate(RotationDirection.LEFT)
+                    direction = direction.rotate(RotationDirection.LEFT)
                 self.window[pos.as_tuple()].update(
-                    "||" if rug.pos.direction.value in (0, 2) else "=",
-                    button_color=("black", rug.color.name),
+                    image_filename=f"img/{rug.color.name.lower()}_{direction.name.lower()}.png",
+                    image_size=(51, 51),
                 )
         self.window[self.game.figure_pos.as_tuple()].update(
             image_filename=f"img/fig_{self.game.figure_dir.value}.png",
