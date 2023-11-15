@@ -81,6 +81,7 @@ class MainWindow:
                     direction = direction.rotate(RotationDirection.LEFT)
                     direction = direction.rotate(RotationDirection.LEFT)
                 self.window[pos.as_tuple()].update(
+                    button_color=rug.color.name,
                     image_filename=f"img/{rug.color.name.lower()}_{direction.name.lower()}.png",
                     image_size=(51, 51),
                 )
