@@ -3,10 +3,14 @@ import time
 import PySimpleGUI as sg  # type: ignore
 
 from ..model.color import Color
-from ..model.directions import RotationDirection
+from ..model.directions import Direction, RotationDirection
 from ..model.game_state import GameState
 from ..model.position import Pos
 from ..model.rug import RugPos
+
+
+def fig_img(direction: Direction) -> str:
+    "img/fig_{direction.value}.png"
 
 
 class MainWindow:
@@ -21,14 +25,13 @@ class MainWindow:
             self.layout.append(
                 [
                     sg.Button(
-                        " ",
+                        size=(5, 2),
                         pad=(0, 0),
                         border_width=1,
                         key=(row, col),
-                        image_filename="img/fig_0.png"
+                        image_filename=fig_img(self.game.figure_dir)
                         if Pos(row, col) == self.game.figure_pos
                         else "img/fig_none.png",
-                        image_size=(51, 51),
                     )
                     for col in range(7)
                 ]
