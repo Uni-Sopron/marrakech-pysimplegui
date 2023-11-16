@@ -10,7 +10,7 @@ from ..model.rug import RugPos
 
 
 def fig_img(direction: Direction) -> str:
-    return "img/fig_{direction.value}.png"
+    return f"img/fig_{direction.value}.png"
 
 
 class MainWindow:
@@ -25,6 +25,7 @@ class MainWindow:
             self.layout.append(
                 [
                     sg.Button(
+                        " ",
                         size=(5, 2),
                         pad=(0, 0),
                         border_width=1,
@@ -32,6 +33,7 @@ class MainWindow:
                         image_filename=fig_img(self.game.figure_dir)
                         if Pos(row, col) == self.game.figure_pos
                         else "img/fig_none.png",
+                        image_size=(51, 51),
                     )
                     for col in range(7)
                 ]
@@ -74,9 +76,7 @@ class MainWindow:
     def update(self):
         for row in range(7):
             for col in range(7):
-                self.window[(row, col)].update(
-                    image_filename="img/fig_none.png", image_size=(51, 51)
-                )
+                self.window[(row, col)].update(image_filename="img/fig_none.png")
         for rug in self.game.rugs:
             for pos in rug.pos.as_tuple():
                 direction = rug.pos.direction
@@ -86,11 +86,9 @@ class MainWindow:
                 self.window[pos.as_tuple()].update(
                     button_color=rug.color.name,
                     image_filename=f"img/{rug.color.name.lower()}_{direction.name.lower()}.png",
-                    image_size=(51, 51),
                 )
         self.window[self.game.figure_pos.as_tuple()].update(
-            image_filename=f"img/fig_{self.game.figure_dir.value}.png",
-            image_size=(51, 51),
+            image_filename=fig_img(self.game.figure_dir),
         )
         for player in self.game.players:
             self.window[f"{player.name}_name"].update(
