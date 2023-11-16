@@ -10,7 +10,7 @@ from ..model.rug import RugPos
 
 
 def fig_img(direction: Direction) -> str:
-    "img/fig_{direction.value}.png"
+    return "img/fig_{direction.value}.png"
 
 
 class MainWindow:
