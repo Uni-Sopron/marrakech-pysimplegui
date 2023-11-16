@@ -9,6 +9,10 @@ from ..model.position import Pos
 from ..model.rug import RugPos
 
 
+def fig_img(direction: Direction) -> str:
+    "img/fig_{direction.value}.png"
+
+
 class MainWindow:
     def __init__(self, game: GameState):
         # sg.theme_previewer()
@@ -25,7 +29,7 @@ class MainWindow:
                         pad=(0, 0),
                         border_width=1,
                         key=(row, col),
-                        image_filename=f"img/fig_{self.game.figure_dir.value}.png"
+                        image_filename=fig_img(self.game.figure_dir)
                         if Pos(row, col) == self.game.figure_pos
                         else "img/fig_none.png",
                     )
@@ -78,7 +82,7 @@ class MainWindow:
                     button_color=("black", rug.color.name),
                 )
         self.window[self.game.figure_pos.as_tuple()].update(
-            image_filename=f"img/fig_{self.game.figure_dir.value}.png"
+            image_filename=fig_img(self.game.figure_dir)
         )
         for player in self.game.players:
             self.window[f"{player.name}_name"].update(
