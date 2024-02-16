@@ -1,4 +1,4 @@
-# Hackathon 2023 ősz
+# Hackathon 2023 ősz (PySimpleGUI megoldás)
 
 A feladat a Marrakech nevű társasjáték digitális implementációjának elkészítése.
 A játékszabályok [itt](jatekszabaly.md) olvashatók.
